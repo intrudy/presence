@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.10"
 webauthn = "^2.1.0"
 django = "^5.0.4"
+psycopg2-binary = "^2.9.9"
 
 
 [tool.poetry.group.dev.dependencies]
