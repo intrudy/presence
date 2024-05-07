@@ -24,8 +24,8 @@ class Host(User):
 
 class Cohort(db.Model):
     strength = db.IntegerField(default=10)
-    name = db.TextField(default=str(uuid.uuid4()))
-    year = db.TextField(default=str(datetime.today().year))
+    name = db.CharField(max_length=128, blank=False, default=str(uuid.uuid4()))
+    year = db.CharField(max_length=128, blank=False, default=str(datetime.today().year))
 
     class Meta:
         verbose_name = 'Cohort'
@@ -40,7 +40,7 @@ class Event(db.Model):
     duration = db.IntegerField(default=60)
     start = db.DateTimeField(default=timezone.now)
     ended = db.DateTimeField(default=timezone.now)
-    title = db.TextField(blank=False, max_length=128)
+    title = db.CharField(blank=False, max_length=128)
     description = db.TextField(blank=False, max_length=240)
     host = db.ForeignKey(Host, on_delete=db.PROTECT)
     cohort = db.ForeignKey(Cohort, on_delete=db.PROTECT)
