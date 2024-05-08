@@ -10,6 +10,12 @@ urlpatterns = [
     path("guests/<str:uid>/edit", views.guests.edit, name="Edit guest details"),
     path("guests/register", views.guests.register, name="Register new guest profile"),
 
+    path("markers", views.markers.filter, name="Filter attendance markers"),
+    path("markers/<str:uid>", views.markers.fetch, name="Attendance marker details"),
+    path("markers/<str:uid>/edit", views.markers.edit, name="Edit attendance marker"),
+    # TODO: path("markers/<str:uid>/delete", views.markers.delete, name="Delete attendance marker"),
+    path("markers/register", views.markers.register, name="Create attendance marker"),
+
     path("teams", views.teams.all, name="View all teams"),
     path("teams/<str:uid>", views.teams.fetch, name="View team details"),
     path("teams/<str:uid>/edit", views.teams.edit, name="Edit team details"),
