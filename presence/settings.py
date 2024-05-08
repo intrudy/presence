@@ -40,7 +40,8 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 PRESENCE_APPS = [
-    'hosts.apps.HostsConfig'
+    'hosts.apps.HostsConfig',
+    'guests.apps.GuestsConfig'
 ]
 THIRD_PARTY_APPS = []
 INSTALLED_APPS = DJANGO_APPS + PRESENCE_APPS + THIRD_PARTY_APPS
