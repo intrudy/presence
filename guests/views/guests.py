@@ -1,7 +1,7 @@
 
 import json
 
-from django.core import serializers
+from django.core.serializers import serialize
 from django.http import HttpRequest
 from django.http import HttpResponseNotFound
 from django.http import JsonResponse
@@ -10,13 +10,13 @@ from ..models import Guest
 
 
 def all(request: HttpRequest) -> JsonResponse:
-    rs = serializers.serialize('json', Guest.objects.all())
+    rs = serialize('json', Guest.objects.all())
     return JsonResponse({'guests': json.loads(rs)})
 
 
 def fetch(request: HttpRequest, uid: str) -> JsonResponse:
     try:
-        rs = serializers.serialize('json', [Guest.objects.get(id=uid)])
+        rs = serialize('json', [Guest.objects.get(id=uid)])
         return JsonResponse({'guest': json.loads(rs)})
     except Guest.DoesNotExist:
         return HttpResponseNotFound("Guest(%s) not found" % uid)
@@ -29,6 +29,7 @@ def edit(request: HttpRequest, uid: str) -> JsonResponse:
             if hasattr(g, str(k)):
                 setattr(g, str(k), v)
         g.save()
+        return JsonResponse({'guest': json.loads(serialize('json', [g]))})
     except Guest.DoesNotExist:
         return HttpResponseNotFound("Guest(%s) not found" % uid)
 
@@ -39,4 +40,4 @@ def register(request: HttpRequest) -> JsonResponse:
         if hasattr(g, str(k)):
             setattr(g, str(k), v)
     g.save()
-    return JsonResponse({'guest': json.loads(serializers.serialize('json', [g]))})
+    return JsonResponse({'guest': json.loads(serialize('json', [g]))})
