@@ -56,7 +56,7 @@ class Marker(db.Model):
     def __str__(self) -> str:
         return "Marker<%s>" % (self.member)
 
-    def save(self, *args, **kwargs) -> str:
+    def save(self, *args, **kwargs):
         if self.area and (self.lat == 0.0 and self.lon == 0.0):
             try:
                 mapbox = geocoders.MapBox(api_key=os.getenv('MAPBOX_ACCESS_TOKEN'))

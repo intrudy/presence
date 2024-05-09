@@ -11,7 +11,6 @@ from hosts.models import Cohort
 
 
 def filter(request: HttpRequest) -> JsonResponse:
-    try:
         kwargs = {}
         if 'date' in request.GET.keys(): kwargs['date'] = request.GET.get('date')
         if 'start' in request.GET.keys(): kwargs['start'] = request.GET.get('start')
@@ -21,15 +20,15 @@ def filter(request: HttpRequest) -> JsonResponse:
             kwargs['cohort'] = cohort.id
 
         markers = Marker.objects.filter(**kwargs)
+        if len(markers) == 0:
+            return HttpResponseNotFound("Query returned no markers")
         return JsonResponse({'markers': json.loads(serialize('json', markers))})
-    except Cohort.DoesNotExist:
-        return HttpResponseNotFound("No markers found for Cohort(%s)" % request.GET.get('cohort'))
 
 
 def fetch(request: HttpRequest, uid: str) -> JsonResponse:
     try:
         marker = Marker.objects.get(id=uid)
-        return JsonResponse(serialize('json', [marker]))
+        return JsonResponse({'marker': json.loads(serialize('json', [marker]))})
     except Marker.DoesNotExist:
         return HttpResponseNotFound("Marker(%s) not found" % uid)
 
@@ -53,3 +52,12 @@ def register(request: HttpRequest) -> JsonResponse:
             setattr(marker, str(k), v)
     marker.save()
     return JsonResponse({'marker': json.loads(serialize('json', [marker]))})
+
+
+def delete(request: HttpRequest, uid: str) -> JsonResponse:
+    try:
+        marker = Marker.objects.get(id=uid)
+        marker.delete()
+        return JsonResponse({'marker': str(marker), 'deleted': True})
+    except Marker.DoesNotExist:
+        return HttpResponseNotFound("Marker(%s) not found" % uid)
