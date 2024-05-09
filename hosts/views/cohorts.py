@@ -46,3 +46,12 @@ def register(request: HttpRequest) -> JsonResponse:
             setattr(cohort, str(k), v)
     cohort.save()
     return JsonResponse({'cohort': json.loads(serialize('json', [cohort]))})
+
+
+def delete(request: HttpRequest, uid: str) -> JsonResponse:
+    try:
+        cohort = Cohort.objects.get(id=uid)
+        cohort.delete()
+        return JsonResponse({'cohort': str(cohort), 'deleted': True})
+    except Cohort.DoesNotExist:
+        return HttpResponseNotFound("Cohort(%s) not found" % uid)
