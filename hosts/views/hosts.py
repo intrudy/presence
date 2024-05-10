@@ -1,64 +1,27 @@
 
-import json
-
-from django.core.serializers import serialize
-from django.core.exceptions import ValidationError
 from django.http import HttpRequest
-from django.http import HttpResponseNotFound
-from django.http import HttpResponseServerError
 from django.http import JsonResponse
 
-from ..models import Host
+from presence.views import Plural
+from presence.views import Singular
+from ..models import Host as HostModel
 
 
-def filter(request: HttpRequest) -> JsonResponse:
-    kwargs = dict.fromkeys([str(k) for k in request.GET.keys() if hasattr(Host, str(k))])
-    for k in kwargs.keys():
-        kwargs.update({k: request.GET.get(k)})
+class Host(Singular):
+    entity = 'host'
+    model = HostModel
 
-    hosts = Host.objects.filter(**kwargs)
-    if len(hosts) == 0:
-        return HttpResponseNotFound("No results found")
-    return JsonResponse({'hosts': json.loads(serialize('json', hosts))})
+    def post(self, request: HttpRequest, *args, **kwargs) -> JsonResponse:
+        kwargs = dict.fromkeys([str(k) for k in request.GET.keys() if hasattr(self.model, str(k))])
+        return super().post(request, *args, **kwargs)
 
 
-def fetch(request: HttpRequest, uid: str) -> JsonResponse:
-    try:
-        host = Host.objects.get(id=uid)
-        return JsonResponse({'host': json.loads(serialize('json', [host]))})
-    except Host.DoesNotExist:
-        return HttpResponseNotFound("Host(%s) not found" % uid)
+class Hosts(Plural):
+    entity = 'hosts'
+    model = HostModel
 
-
-def edit(request: HttpRequest, uid: str) -> JsonResponse:
-    try:
-        host = Host.objects.get(id=uid)
-        for k, v in request.POST.items():
-            if hasattr(host, str(k)):
-                setattr(host, str(k), v)
-        host.save()
-        return JsonResponse({'host': json.loads(serialize('json', [host]))})
-    except Host.DoesNotExist:
-        return HttpResponseNotFound("Host(%s) not found" % uid)
-
-
-def register(request: HttpRequest) -> JsonResponse:
-    kwargs = dict.fromkeys([str(k) for k in request.GET.keys() if hasattr(Host, str(k))])
-    for k in kwargs.keys():
-        kwargs.update({k: request.GET.get(k)})
-
-    try:
-        host = Host(**kwargs)
-        host.save()
-        return JsonResponse({'host': json.loads(serialize('json', [host]))})
-    except ValidationError as err:
-        return HttpResponseServerError("Failed to register new user", err)
-
-
-def delete(request: HttpRequest, uid: str) -> JsonResponse:
-    try:
-        host = Host.objects.get(id=uid)
-        host.delete()
-        return JsonResponse({'host': str(host), 'deleted': True})
-    except Host.DoesNotExist:
-        return HttpResponseNotFound("Host(%s) not found" % uid)
+    def get(self, request: HttpRequest, *args, **kwargs) -> JsonResponse:
+        kwargs = dict.fromkeys([str(k) for k in request.GET.keys() if hasattr(self.model, str(k))])
+        for k in kwargs.keys():
+            kwargs.update({k: request.GET.get(k)})
+        return super().get(request, *args, **kwargs)
