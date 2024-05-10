@@ -19,6 +19,7 @@ from django.urls import path
 from django.urls import include
 
 
+admin.site.site_header = "PRESENCE"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('hosts.urls')),
