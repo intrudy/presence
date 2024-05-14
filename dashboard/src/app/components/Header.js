@@ -1,25 +1,14 @@
 
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  ChartPieIcon,
-  // CursorArrowRaysIcon,
-  // FingerPrintIcon,
-  // SquaresPlusIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
+import { ArrowPathIcon, Bars3Icon, ChartPieIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 import {classNames} from '../utils'
 
 
-const products = [
+const reports = [
   { name: 'Analytics', description: 'Accurate attendance metrics for your events', href: '#', icon: ChartPieIcon },
-  // { name: 'Engagement', description: 'Estimate a cohort\'s responsiveness towards your events', href: '#', icon: CursorArrowRaysIcon },
-  // { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  // { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
   { name: 'Automations', description: 'Schedule recurring reports and analytics', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
@@ -69,7 +58,7 @@ export default function Header() {
             >
               <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
-                  {products.map((item) => (
+                  {reports.map((item) => (
                     <div
                       key={item.name}
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
@@ -103,9 +92,6 @@ export default function Header() {
             </Transition>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Profile
-          </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Cohorts
           </a>
@@ -157,7 +143,7 @@ export default function Header() {
                         />
                       </Disclosure.Button>
                       <Disclosure.Panel className="mt-2 space-y-2">
-                        {[...products, ...callsToAction].map((item) => (
+                        {[...reports, ...callsToAction].map((item) => (
                           <Disclosure.Button
                             key={item.name}
                             as="a"
@@ -171,12 +157,6 @@ export default function Header() {
                     </>
                   )}
                 </Disclosure>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Profile
-                </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
