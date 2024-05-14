@@ -2,7 +2,7 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, PopoverGroup, PopoverPanel, Transition } from '@headlessui/react'
 import { ArrowPathIcon, Bars3Icon, ChartPieIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon, CloudArrowDownIcon, PhoneIcon } from '@heroicons/react/20/solid'
 
 import {classNames} from '../utils'
 
@@ -12,8 +12,8 @@ const reports = [
   { name: 'Automations', description: 'Schedule recurring reports and analytics', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+  { name: 'Download Reports', href: '#', icon: CloudArrowDownIcon },
+  // { name: 'Contact support', href: '#', icon: PhoneIcon }, // TODO: Move to footer or elsewhere more accessible
 ]
 
 
@@ -65,7 +65,7 @@ function ReportsMenu() {
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+          <div className="grid grid-cols-1 divide-x divide-gray-900/5 bg-gray-50">
             {callsToAction.map((item) => (
               <a
                 key={item.name}
