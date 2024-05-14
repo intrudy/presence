@@ -1,5 +1,5 @@
-/*
-  This example requires some changes to your config:
+/**
+ *  This example requires some changes to your config:
   
   ```
   // tailwind.config.js
@@ -10,9 +10,13 @@
       require('@tailwindcss/forms'),
     ],
   }
-*/
+ */
 
-export default function Login() {
+import React from "react"
+
+
+export default class Entry extends React.Component {
+  render() {
     return (
       <>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -89,3 +93,4 @@ export default function Login() {
       </>
     )
   }
+}
