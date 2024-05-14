@@ -1,14 +1,14 @@
 
 import React from 'react'
 import Header from './components/Header'
-import Login from './components/Login'
+import Entry from './components/Entry'
 
 
 export default function App() {
   return (
     <React.StrictMode>
       <Header />
-      <Login />
+      <Entry />
     </React.StrictMode>
   )
 }
