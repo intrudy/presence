@@ -11,6 +11,7 @@
     ],
   }
 */
+
 export default function Login() {
     return (
       <>
@@ -25,7 +26,7 @@ export default function Login() {
               Sign in to your account
             </h2>
           </div>
-  
+
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form className="space-y-6" action="#" method="POST">
               <div>
@@ -43,7 +44,7 @@ export default function Login() {
                   />
                 </div>
               </div>
-  
+
               <div>
                 <div className="flex items-center justify-between">
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
@@ -88,4 +89,3 @@ export default function Login() {
       </>
     )
   }
-  
