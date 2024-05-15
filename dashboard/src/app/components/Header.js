@@ -1,12 +1,16 @@
 
 import React from 'react'
-import { Dialog, PopoverGroup } from '@headlessui/react'
+import {
+  Dialog,
+  DialogPanel,
+  PopoverGroup
+} from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 import Reports from './menu/reports'
 
 
-function Branding(props) {
+function Branding() {
   return (
     <div className="flex lg:flex-1">
       <a href="#" className="-m-1.5 p-1.5">
@@ -21,7 +25,7 @@ function MobileDialog({parent, active}) {
   return(
     <Dialog className="lg:hidden" open={active} onClose={() => parent.menuClose()}>
       <div className="fixed inset-0 z-10" />
-      <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+      <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div className="flex items-center justify-between">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Turnout</span>
@@ -59,7 +63,7 @@ function MobileDialog({parent, active}) {
             </div>
           </div>
         </div>
-      </Dialog.Panel>
+      </DialogPanel>
     </Dialog>
   )
 }
