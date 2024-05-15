@@ -25,7 +25,7 @@ const actions = [
 ]
 
 
-function mobile(props) {
+function mobile() {
     return (
       <Disclosure as="div" className="-mx-3">
         {({ open }) => (
@@ -55,7 +55,7 @@ function mobile(props) {
     )
 }
 
-function web(props) {
+function web() {
     return (
       <Popover className="relative">
           <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
