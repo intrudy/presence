@@ -7,7 +7,7 @@ import {
 } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-import Reports from './menu/Reports'
+import Reports from './Reports'
 
 
 export function Branding() {

@@ -3,14 +3,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
-import App from './App'
-import Error from './components/Error'
-import Entry from './components/Entry'
+import App, {Default, Login} from './App'
 
 
 const router = createBrowserRouter([
-  {path: '/', element: <App />, errorElement: <Error />},
-  {path: '/login', element: <Entry />, errorElement: <Error />}
+  {path: '/', element: <App />, errorElement: <Default />},
+  {path: '/login', element: <Login />, errorElement: <Default />}
 ])
 
 

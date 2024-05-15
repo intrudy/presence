@@ -13,7 +13,7 @@ import {
 import { ChevronDownIcon, CloudArrowDownIcon } from '@heroicons/react/20/solid'
 import { ArrowPathIcon, ChartPieIcon } from '@heroicons/react/24/outline'
 
-import {classNames} from '../../utils'
+import {classNames} from '../utils'
 
 
 const reports = [
