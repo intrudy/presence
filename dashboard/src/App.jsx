@@ -24,6 +24,31 @@ export function Login() {
   )
 }
 
+export function Register() {
+  return (
+    <>
+      <Header />
+      <Entry />
+    </>
+  )
+}
+
+export function Cohorts() {
+  return (
+    <>
+      <Header/>
+    </>
+  )
+}
+
+export function Events() {
+  return (
+    <>
+      <Header/>
+    </>
+  )
+}
+
 export default class App extends React.Component {
   render() {
     return (
