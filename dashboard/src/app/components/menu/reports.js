@@ -1,7 +1,15 @@
 
 import React from 'react'
 
-import { Disclosure, Popover, PopoverPanel, Transition } from '@headlessui/react'
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+  Transition
+} from '@headlessui/react'
 import { ChevronDownIcon, CloudArrowDownIcon } from '@heroicons/react/20/solid'
 import { ArrowPathIcon, ChartPieIcon } from '@heroicons/react/24/outline'
 
@@ -22,25 +30,25 @@ function mobile(props) {
       <Disclosure as="div" className="-mx-3">
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+            <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
               Reports
               <ChevronDownIcon
                 className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
                 aria-hidden="true"
               />
-            </Disclosure.Button>
-            <Disclosure.Panel className="mt-2 space-y-2">
+            </DisclosureButton>
+            <DisclosurePanel className="mt-2 space-y-2">
               {[...reports, ...actions].map((item) => (
-                <Disclosure.Button
+                <DisclosureButton
                   key={item.name}
                   as="a"
                   href={item.href}
                   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   {item.name}
-                </Disclosure.Button>
+                </DisclosureButton>
               ))}
-            </Disclosure.Panel>
+            </DisclosurePanel>
           </>
         )}
       </Disclosure>
@@ -50,10 +58,10 @@ function mobile(props) {
 function web(props) {
     return (
       <Popover className="relative">
-          <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+          <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
           Reports
           <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-          </Popover.Button>
+          </PopoverButton>
 
           <Transition
             as={React.Fragment}
