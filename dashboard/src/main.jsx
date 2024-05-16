@@ -8,10 +8,12 @@ import App, {Default, Login, Register, Cohorts, Events} from './App'
 
 const router = createBrowserRouter([
   {path: '/', element: <App />, errorElement: <Default />},
+  // {path: '/help', element: <Help />, errorElement: <Default />},
   {path: '/login', element: <Login />, errorElement: <Default />},
-  {path: '/register', element: <Register />, errorElement: <Default />},
+  {path: '/events', element: <Events />, errorElement: <Default />},
   {path: '/cohorts', element: <Cohorts />, errorElement: <Default />},
-  {path: '/events', element: <Events />, errorElement: <Default />}
+  {path: '/register', element: <Register />, errorElement: <Default />},
+  {path: '/password/reset', element: <Login />, errorElement: <Default />}
 ])
 
 

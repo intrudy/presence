@@ -10,6 +10,7 @@ import {
   PopoverPanel,
   Transition
 } from '@headlessui/react'
+import { Link } from 'react-router-dom'
 import { ChevronDownIcon, CloudArrowDownIcon } from '@heroicons/react/20/solid'
 import { ArrowPathIcon, ChartPieIcon } from '@heroicons/react/24/outline'
 
@@ -83,10 +84,10 @@ function web() {
                         <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                     </div>
                     <div className="flex-auto">
-                        <a href={item.href} className="block font-semibold text-gray-900">
+                        <Link href={item.href} className="block font-semibold text-gray-900">
                           {item.name}
                           <span className="absolute inset-0" />
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">{item.description}</p>
                     </div>
                   </div>
@@ -94,14 +95,14 @@ function web() {
               </div>
               <div className="grid grid-cols-1 divide-x divide-gray-900/5 bg-gray-50">
               {actions.map((item) => (
-                  <a
+                  <Link
                   key={item.name}
                   href={item.href}
                   className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                   >
-                  <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                  {item.name}
-                  </a>
+                    <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                    {item.name}
+                  </Link>
               ))}
               </div>
           </PopoverPanel>
