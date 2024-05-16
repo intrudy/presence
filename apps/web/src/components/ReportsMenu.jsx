@@ -84,7 +84,7 @@ function web() {
                         <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                     </div>
                     <div className="flex-auto">
-                        <Link href={item.href} className="block font-semibold text-gray-900">
+                        <Link to={item.href} className="block font-semibold text-gray-900">
                           {item.name}
                           <span className="absolute inset-0" />
                         </Link>
@@ -97,7 +97,7 @@ function web() {
               {actions.map((item) => (
                   <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                   >
                     <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
