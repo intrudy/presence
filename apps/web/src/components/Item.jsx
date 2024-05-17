@@ -78,7 +78,7 @@ export default class Item extends React.Component {
             </dl>
           </div>
         </div>
-        <Footer/>
+        <Footer.Minimal/>
       </>
     )
   }
