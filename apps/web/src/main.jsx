@@ -5,11 +5,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App, {Default} from './App'
 import Entry from './components/Entry'
-import Home from './components/Home'
-import Feature from './components/Feature'
-import Guests from './components/Guests'
-import Item from './components/Item'
-import Dashboard from './components/Dashboard'
+import Landing from './components/Landing'
+import Analytics from './components/Analytics'
 
 
 const router = createBrowserRouter([
@@ -19,17 +16,17 @@ const router = createBrowserRouter([
     errorElement: <Default/>,
     children: [
       // { path: 'help', element: <Help/> },
-      { path: "", element: <Home/>},
-      { path: "login", element: <Entry/> },
-      { path: "events", element: <Feature/> },
-      { path: "cohorts", element: <Feature/> },
-      { path: "guests", element: <Guests/> },
-      { path: "guests/:id", element: <Item/>},
-      { path: "register", element: <Entry/> },
+      { path: "", element: <Entry/>},
+      { path: "login", element: <Landing/> },
+      { path: "events", element: <Landing/> },
+      { path: "cohorts", element: <Landing/> },
+      { path: "guests", element: <Landing/> },
+      { path: "guests/:id", element: <Landing/>},
+      { path: "register", element: <Landing/> },
       { path: "password/reset", element: <Entry/> },
+      { path: "reports/analytics", element: <Analytics/> }
     ]
   },
-  { path: "/analytics", element: <Dashboard/> }
 ])
 
 
