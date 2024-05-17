@@ -130,7 +130,7 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <>
-        <body className="flex bg-gray-100 min-h-screen">
+        <body className="flex h-full bg-gray-100">
           <Navigator/>
 
           <div className="flex-grow text-gray-800">
@@ -155,9 +155,10 @@ export default class Dashboard extends React.Component {
                 <Charts.Secondary/>
               </section>
             </main>
+
+            <Footer.Minimal/>
           </div>
         </body>
-        <Footer.Minimal/>
       </>
     )
   }
