@@ -8,8 +8,8 @@ import Entry from './components/Entry'
 import Home from './components/Home'
 import Feature from './components/Feature'
 import Guests from './components/Guests'
-import Alternate from './components/Alternate'
 import Item from './components/Item'
+import Dashboard from './components/Dashboard'
 
 
 const router = createBrowserRouter([
@@ -26,9 +26,10 @@ const router = createBrowserRouter([
       { path: "guests", element: <Guests/> },
       { path: "guests/:id", element: <Item/>},
       { path: "register", element: <Entry/> },
-      { path: "password/reset", element: <Entry/> }
+      { path: "password/reset", element: <Entry/> },
     ]
-  }
+  },
+  { path: "/analytics", element: <Dashboard/> }
 ])
 
 
