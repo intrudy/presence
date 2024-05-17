@@ -1,3 +1,6 @@
 {
-    "pylint.args": ["--rcfile=../service/pylint.rc"]
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "pylint.args": ["--rcfile=../service/pylint.rc"],
 }
