@@ -1,19 +1,34 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import App, {Default, Login, Register, Cohorts, Events} from './App'
+import App, {Default} from './App'
+import Entry from './components/Entry'
+import Home from './components/Home'
+import Feature from './components/Feature'
+import Guests from './components/Guests'
+import Alternate from './components/Alternate'
+import Item from './components/Item'
 
 
 const router = createBrowserRouter([
-  {path: '/', element: <App />, errorElement: <Default />},
-  // {path: '/help', element: <Help />, errorElement: <Default />},
-  {path: '/login', element: <Login />, errorElement: <Default />},
-  {path: '/events', element: <Events />, errorElement: <Default />},
-  {path: '/cohorts', element: <Cohorts />, errorElement: <Default />},
-  {path: '/register', element: <Register />, errorElement: <Default />},
-  {path: '/password/reset', element: <Login />, errorElement: <Default />}
+  {
+    path: "/",
+    element: <App/>,
+    errorElement: <Default/>,
+    children: [
+      // { path: 'help', element: <Help/> },
+      { path: "", element: <Home/>},
+      { path: "login", element: <Entry/> },
+      { path: "events", element: <Feature/> },
+      { path: "cohorts", element: <Feature/> },
+      { path: "guests", element: <Guests/> },
+      { path: "guests/:id", element: <Item/>},
+      { path: "register", element: <Entry/> },
+      { path: "password/reset", element: <Entry/> }
+    ]
+  }
 ])
 
 
