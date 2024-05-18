@@ -31,27 +31,52 @@ export function GearIcon() {
 }
 
 export function Menu() {
+  const styles = {
+    highlighted: "inline-flex items-center justify-center py-3 text-purple-600 bg-white rounded-lg",
+    default: "inline-flex items-center justify-center py-3 hover:text-gray-400 hover:bg-gray-700 focus:text-gray-400 focus:bg-gray-700 rounded-lg"
+  }
+  const actions = [
+    {
+      name: 'Cohorts',
+      href:'/cohorts',
+      icon: "M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+     },
+     {
+      name: 'Analytics',
+      href: '/reports/analytics',
+      icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+    },
+    {
+      name: 'Reports',
+      href: '/reports',
+      icon: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+    }
+  ]
+
   return (
     <>
       <nav className="flex flex-col mx-4 my-6 space-y-4">
-        <Link to={'/cohorts'} className="inline-flex items-center justify-center py-3 hover:text-gray-400 hover:bg-gray-700 focus:text-gray-400 focus:bg-gray-700 rounded-lg">
-          <span className="sr-only">Cohorts</span>
-          <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-          </svg>
-        </Link>
-        <Link to={'/reports/analytics'} className="inline-flex items-center justify-center py-3 text-purple-600 bg-white rounded-lg">
-          <span className="sr-only">Analytics</span>
-          <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-          </svg>
-        </Link>
-        <Link to={'/reports'} className="inline-flex items-center justify-center py-3 hover:text-gray-400 hover:bg-gray-700 focus:text-gray-400 focus:bg-gray-700 rounded-lg">
-          <span className="sr-only">Reports</span>
-          <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-          </svg>
-        </Link>
+        {actions.map((item) => (
+          <Link
+            to={item.href}
+            id={item.name}
+            key={item.name}
+            className={styles.default}
+            onClick={() => {
+              const selected = document.getElementsByClassName(styles.highlighted)
+              for (let i = 0; i < selected.length; i++) {
+                selected[i].className = styles.default
+              }
+
+              document.getElementById(item.name).className = styles.highlighted
+            }}
+          >
+            <span className="sr-only">{item.name}</span>
+            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={item.icon} />
+            </svg>
+          </Link>
+        ))}
       </nav>
     </>
   )
