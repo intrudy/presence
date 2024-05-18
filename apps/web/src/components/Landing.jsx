@@ -88,7 +88,6 @@ export default class ComingSoon extends React.Component {
                   “We are working on bringing you the best experience. Please try again later or <Link to={'/help'}><span className="underline">contact us</span></Link> with your requests.”
                 </p>
               </blockquote>
-              {/* <Signature/> */}
             </figure>
           </div>
         </section>
