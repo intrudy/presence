@@ -85,7 +85,7 @@ export default class ComingSoon extends React.Component {
             <figure className="mt-10">
               <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
                 <p>
-                  “We are working on bringing you the best experience. Please try again later or contact us with your requests.”
+                  “We are working on bringing you the best experience. Please try again later or <Link to={'/help'}><span className="underline">contact us</span></Link> with your requests.”
                 </p>
               </blockquote>
               {/* <Signature/> */}
