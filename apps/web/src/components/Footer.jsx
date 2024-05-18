@@ -9,7 +9,7 @@ export class Minimal extends React.Component {
         <section className="p-3 bg-white">
           <div className="max-w-screen-xl px-4 py-4 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
             <p className="text-base leading-normal text-center text-gray-400">
-              © 2024 Turnout, Inc. Adapted from <a className="underline" href="https://dribbble.com/shots/10711741-Free-UI-Kit-for-Figma-Online-Courses-Dashboard">design</a> by Chili Labs.
+              © 2024 Turnout, Inc. Adapted from <a className="underline" href="https://dribbble.com/shots/10711741-Free-UI-Kit-for-Figma-Online-Courses-Dashboard" target="_blank">design</a> by Chili Labs.
             </p>
           </div>
         </section>
