@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './App'
 import Entry from './components/Entry'
+import Help from './components/Help'
 import ComingSoon, { ErrorPage } from './components/Landing'
 import Analytics from './components/Analytics'
 
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage/>,
     children: [
       { path: "", element: <Entry/>},
-      { path: 'help', element: <ComingSoon/> },
+      { path: 'help', element: <Help/> },
       { path: "login", element: <ComingSoon/> },
       { path: "events", element: <ComingSoon/> },
       { path: "cohorts", element: <ComingSoon/> },
