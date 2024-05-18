@@ -2,6 +2,27 @@
 import React from "react"
 
 
+export function Signature() {
+  return (
+    <>
+      <figcaption className="mt-10">
+        <img
+          className="mx-auto h-10 w-10 rounded-full"
+          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+          alt=""
+        />
+        <div className="mt-4 flex items-center justify-center space-x-3 text-base">
+          <div className="font-semibold text-gray-900">Harish Navnit</div>
+          <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900">
+            <circle cx={1} cy={1} r={1} />
+          </svg>
+          <div className="text-gray-600">Founder, Turnout</div>
+        </div>
+      </figcaption>
+    </>
+  )
+}
+
 export default class Landing extends React.Component {
   render() {
     return (
@@ -16,24 +37,10 @@ export default class Landing extends React.Component {
             <figure className="mt-10">
               <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
                 <p>
-                  “Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias
-                  molestiae. Numquam corrupti in laborum sed rerum et corporis.”
+                  “We are working on bringing you the best experience. Please try again later or contact us with your requests.”
                 </p>
               </blockquote>
-              <figcaption className="mt-10">
-                <img
-                  className="mx-auto h-10 w-10 rounded-full"
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt=""
-                />
-                <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-                  <div className="font-semibold text-gray-900">Harish Navnit</div>
-                  <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900">
-                    <circle cx={1} cy={1} r={1} />
-                  </svg>
-                  <div className="text-gray-600">Founder, Turnout</div>
-                </div>
-              </figcaption>
+              {/* <Signature/> */}
             </figure>
           </div>
         </section>
