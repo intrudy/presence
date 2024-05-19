@@ -153,7 +153,7 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <>
-        <div className="flex h-full bg-gray-100">
+        <div className="flex bg-gray-100">
           <Sidebar/>
 
           <div className="flex-grow text-gray-800">
