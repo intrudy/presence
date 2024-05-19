@@ -17,6 +17,31 @@ export function PageHeader() {
 }
 
 export default class Analytics extends React.Component {
+
+  population() {
+    return new Object([
+      {'name': 'Tang Fei', 'score': 100, 'avatar': 'https://randomuser.me/api/portraits/women/82.jpg', },
+      {'name': 'Harish Navnit', 'score': 88, 'avatar': 'https://randomuser.me/api/portraits/men/81.jpg'},
+      {'name': 'Lin Pengcheng', 'score': 95, 'avatar': 'https://randomuser.me/api/portraits/men/80.jpg'},
+      {'name': 'Durga Baskar', 'score': 92, 'avatar': 'https://randomuser.me/api/portraits/women/71.jpg'},
+      {'name': 'Zang Zidong', 'score': 98, 'avatar': 'https://randomuser.me/api/portraits/men/84.jpg'},
+      {'name': 'Zu Lei', 'score': 100, 'avatar': 'https://randomuser.me/api/portraits/women/51.jpg'}
+    ])
+  }
+
+  activeCohort() {
+    return new Object({
+      'name': 'MTD (CS)',
+      'year': '2024',
+      'strength': 20,
+      'stats': {
+        'avg_turnout': {'absolute': 17, 'percent': 84},
+        'shortfall': { 'absolute': 4, 'percent': 20 },
+        'last_turnout': { 'absolute': 18, 'percent': 90 }
+      }
+    })
+  }
+
   render() {
     return (
       <>
@@ -30,13 +55,13 @@ export default class Analytics extends React.Component {
             <br/>
 
             <section className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-              <Highlights/>
+              <Highlights cohort={this.activeCohort()}/>
             </section>
             <br/>
 
             <section className="grid md:grid-cols-2 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col gap-6">
               <Charts.Primary/>
-              <Leaderboard/>
+              <Leaderboard population={this.population()}/>
               <Charts.Secondary/>
             </section>
             <br/>

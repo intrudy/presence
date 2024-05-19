@@ -98,7 +98,7 @@ export function Sidebar() {
   )
 }
 
-export function Header() {
+export function Header({user}) {
   return (
     <>
       <header className="flex items-center h-20 px-6 sm:px-10 bg-white">
@@ -116,8 +116,8 @@ export function Header() {
           <button className="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
             <span className="sr-only">User Menu</span>
             <div className="hidden md:flex md:flex-col md:items-end md:leading-tight">
-              <span className="font-semibold">Grace Simmons</span>
-              <span className="text-sm text-gray-600">Lecturer</span>
+              <span className="font-semibold">{user.first_name} {user.last_name}</span>
+              <span className="text-sm text-gray-600">{user.type} @ {user.workplace}</span>
             </div>
             <span className="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
               <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="user profile photo" className="h-full w-full object-cover"/>
@@ -150,6 +150,32 @@ export function Header() {
 }
 
 export default class Dashboard extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  user() {
+    return new Object({
+      'first_name': 'Harish',
+      'last_name': 'Navnit',
+      'type': 'Host',
+      'workplace': 'SUTD'
+    })
+  }
+
+  activeCohort() {
+    return new Object({
+      'name': 'MTD (CS)',
+      'year': '2024',
+      'strength': 20,
+      'stats': {
+        'avg_turnout': 84,
+        'shortfall': { 'absolute': 4, 'percent': 20 },
+        'last_turnout': { 'absolute': 18, 'percent': 90 }
+      }
+    })
+  }
+
   render() {
     return (
       <>
@@ -157,7 +183,7 @@ export default class Dashboard extends React.Component {
           <Sidebar/>
 
           <div className="flex-grow overflow-auto text-gray-800" style={{"height": "100vh"}}>
-            <Header/>
+            <Header user={this.user()} />
             <div id="content" style={{"height": "100%"}}>
               <Outlet/>
             </div>
