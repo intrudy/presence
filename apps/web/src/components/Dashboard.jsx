@@ -156,9 +156,9 @@ export default class Dashboard extends React.Component {
         <div className="flex bg-gray-100">
           <Sidebar/>
 
-          <div className="flex-grow text-gray-800">
+          <div className="flex-grow overflow-auto text-gray-800" style={{"height": "100vh"}}>
             <Header/>
-            <div id="content">
+            <div id="content" style={{"height": "100%"}}>
               <Outlet/>
             </div>
             <Footer.Minimal/>
