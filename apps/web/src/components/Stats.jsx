@@ -1,5 +1,6 @@
 
-export function Highlights() {
+
+export function Highlights({cohort}) {
   return (
     <>
       <div className="flex items-center p-8 bg-white shadow rounded-lg">
@@ -9,10 +10,11 @@ export function Highlights() {
           </svg>
         </div>
         <div>
-          <span className="block text-2xl font-bold">62</span>
+          <span className="block text-2xl font-bold">{cohort.strength}</span>
           <span className="block text-gray-500">Students</span>
         </div>
       </div>
+
       <div className="flex items-center p-8 bg-white shadow rounded-lg">
         <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
           <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
@@ -20,10 +22,12 @@ export function Highlights() {
           </svg>
         </div>
         <div>
-          <span className="block text-2xl font-bold">6.8</span>
-          <span className="block text-gray-500">Average mark</span>
+          <span className="inline-block text-2xl font-bold">{cohort.stats.avg_turnout.absolute}</span>
+          <span className="inline-block text-xl text-gray-500 font-semibold">({cohort.stats.avg_turnout.percent}%)</span>
+          <span className="block text-gray-500">Average turnout</span>
         </div>
       </div>
+
       <div className="flex items-center p-8 bg-white shadow rounded-lg">
         <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6">
           <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
@@ -31,11 +35,12 @@ export function Highlights() {
           </svg>
         </div>
         <div>
-          <span className="inline-block text-2xl font-bold">9</span>
-          <span className="inline-block text-xl text-gray-500 font-semibold">(14%)</span>
-          <span className="block text-gray-500">Underperforming students</span>
+          <span className="inline-block text-2xl font-bold">{cohort.stats.shortfall.absolute}</span>
+          <span className="inline-block text-xl text-gray-500 font-semibold">({cohort.stats.shortfall.percent}%)</span>
+          <span className="block text-gray-500">Defaulting students</span>
         </div>
       </div>
+
       <div className="flex items-center p-8 bg-white shadow rounded-lg">
         <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-blue-600 bg-blue-100 rounded-full mr-6">
           <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
@@ -43,82 +48,36 @@ export function Highlights() {
           </svg>
         </div>
         <div>
-          <span className="block text-2xl font-bold">83%</span>
-          <span className="block text-gray-500">Finished homeworks</span>
+          <span className="inline-block text-2xl font-bold">{cohort.stats.last_turnout.absolute}</span>
+          <span className="inline-block text-xl text-gray-500 font-semibold">({cohort.stats.last_turnout.percent}%)</span>
+          <span className="block text-gray-500">Last Turnout</span>
         </div>
       </div>
     </>
   )
 }
 
-export function Individuals() {
+export function Individuals({persons}) {
   return (
     <>
       <div className="overflow-y-auto" style={{"maxHeight": "24rem"}}>
         <ul className="p-6 space-y-6">
-          <li className="flex items-center">
-            <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-              <img src="https://randomuser.me/api/portraits/women/82.jpg" alt="Annette Watson profile picture"/>
-            </div>
-            <span className="text-gray-600">Annette Watson</span>
-            <span className="ml-auto font-semibold">9.3</span>
-          </li>
-          <li className="flex items-center">
-            <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-              <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Calvin Steward profile picture"/>
-            </div>
-            <span className="text-gray-600">Calvin Steward</span>
-            <span className="ml-auto font-semibold">8.9</span>
-          </li>
-          <li className="flex items-center">
-            <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-              <img src="https://randomuser.me/api/portraits/men/80.jpg" alt="Ralph Richards profile picture"/>
-            </div>
-            <span className="text-gray-600">Ralph Richards</span>
-            <span className="ml-auto font-semibold">8.7</span>
-          </li>
-          <li className="flex items-center">
-            <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-              <img src="https://randomuser.me/api/portraits/men/79.jpg" alt="Bernard Murphy profile picture"/>
-            </div>
-            <span className="text-gray-600">Bernard Murphy</span>
-            <span className="ml-auto font-semibold">8.2</span>
-          </li>
-          <li className="flex items-center">
-            <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-              <img src="https://randomuser.me/api/portraits/women/78.jpg" alt="Arlene Robertson profile picture"/>
-            </div>
-            <span className="text-gray-600">Arlene Robertson</span>
-            <span className="ml-auto font-semibold">8.2</span>
-          </li>
-          <li className="flex items-center">
-            <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-              <img src="https://randomuser.me/api/portraits/women/77.jpg" alt="Jane Lane profile picture"/>
-            </div>
-            <span className="text-gray-600">Jane Lane</span>
-            <span className="ml-auto font-semibold">8.1</span>
-          </li>
-          <li className="flex items-center">
-            <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-              <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Pat Mckinney profile picture"/>
-            </div>
-            <span className="text-gray-600">Pat Mckinney</span>
-            <span className="ml-auto font-semibold">7.9</span>
-          </li>
-          <li className="flex items-center">
-            <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-              <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Norman Walters profile picture"/>
-            </div>
-            <span className="text-gray-600">Norman Walters</span>
-            <span className="ml-auto font-semibold">7.7</span>
-          </li>
+          {persons.map((person) => (
+            <li key={person.name} className="flex items-center">
+              <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
+                <img src={person.avatar} alt={person.name}/>
+              </div>
+              <span className="text-gray-600">{person.name}</span>
+              <span className="ml-auto font-semibold">{person.score}%</span>
+            </li>
+          ))}
         </ul>
       </div>
     </>
   )
 }
 
-export function Leaderboard() {
+export function Leaderboard({population}) {
   return (
     <>
       <div className="row-span-3 bg-white shadow rounded-lg">
@@ -132,7 +91,7 @@ export function Leaderboard() {
           </button>
           {/* <!-- Refer here for full dropdown menu code: https://tailwindui.com/components/application-ui/elements/dropdowns --> */}
         </div>
-        <Individuals/>
+        <Individuals persons={population}/>
       </div>
     </>
   )
