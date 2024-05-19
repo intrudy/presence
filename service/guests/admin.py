@@ -6,7 +6,7 @@ from .models import Teams
 
 
 class GuestAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'email', 'cohort')
+    list_display = ('username', 'first_name', 'last_name', 'email', 'cohort')
 
 
 class TeamsAdmin(admin.ModelAdmin):
