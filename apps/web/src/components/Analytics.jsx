@@ -5,12 +5,12 @@ import {TableAds} from './Ads'
 import { Highlights, Leaderboard } from "./Stats"
 
 
-export function PageHeader() {
+export function PageHeader({cohort}) {
   return (
     <>
       <div className="mr-6">
-        <h1 className="text-4xl font-semibold mb-2">Cohort Name</h1>
-        <h2 className="text-gray-600 ml-0.5">A brief description of the Cohort</h2>
+        <h1 className="text-4xl font-semibold mb-2">{cohort.name}</h1>
+        <h2 className="text-gray-600 ml-0.5">{cohort.description}</h2>
       </div>
     </>
   )
@@ -34,6 +34,7 @@ export default class Analytics extends React.Component {
       'name': 'MTD (CS)',
       'year': '2024',
       'strength': 20,
+      'description': '2024 batch of MTD (Cybersecurity)',
       'stats': {
         'avg_turnout': {'absolute': 17, 'percent': 84},
         'shortfall': { 'absolute': 4, 'percent': 20 },
@@ -50,7 +51,7 @@ export default class Analytics extends React.Component {
           <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
           <div className="mx-auto max-w max-h">
             <section className="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
-              <PageHeader/>
+              <PageHeader cohort={this.activeCohort()}/>
             </section>
             <br/>
 
