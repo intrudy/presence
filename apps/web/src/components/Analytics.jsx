@@ -1,16 +1,16 @@
 
 import React from "react"
 
+import Dropdown from "./Dropdown"
 import {TableAds} from './Ads'
 import { Highlights, Leaderboard } from "./Stats"
 
 
-export function PageHeader({cohort}) {
+export function PageHeader({cohorts}) {
   return (
     <>
       <div className="mr-6">
-        <h1 className="text-4xl font-semibold mb-2">{cohort.name}</h1>
-        <h2 className="text-gray-600 ml-0.5">{cohort.description}</h2>
+        <Dropdown cohorts={cohorts}/>
       </div>
     </>
   )
