@@ -29,6 +29,44 @@ export default class Analytics extends React.Component {
     ])
   }
 
+  availableCohorts() {
+    return new Object([
+      {
+        'name': 'MTD (CS)',
+        'year': '2024',
+        'strength': 20,
+        'description': '2024 batch of MTD (Cybersecurity)',
+        'stats': {
+          'avg_turnout': {'absolute': 17, 'percent': 84},
+          'shortfall': { 'absolute': 4, 'percent': 20 },
+          'last_turnout': { 'absolute': 18, 'percent': 90 }
+        }
+      },
+      {
+        'name': 'MIbD',
+        'year': '2024',
+        'strength': 20,
+        'description': 'Masters in Innovation By Design',
+        'stats': {
+          'avg_turnout': {'absolute': 17, 'percent': 84},
+          'shortfall': { 'absolute': 4, 'percent': 20 },
+          'last_turnout': { 'absolute': 18, 'percent': 90 }
+        }
+      },
+      {
+        'name': 'MSSD',
+        'year': '2024',
+        'strength': 20,
+        'description': 'Masters in Security and Systems Design',
+        'stats': {
+          'avg_turnout': {'absolute': 17, 'percent': 84},
+          'shortfall': { 'absolute': 4, 'percent': 20 },
+          'last_turnout': { 'absolute': 18, 'percent': 90 }
+        }
+      }
+    ])
+  }
+
   activeCohort() {
     return new Object({
       'name': 'MTD (CS)',
@@ -51,7 +89,7 @@ export default class Analytics extends React.Component {
           <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
           <div className="mx-auto max-w max-h">
             <section className="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
-              <PageHeader cohort={this.activeCohort()}/>
+              <PageHeader cohorts={this.availableCohorts()}/>
             </section>
             <br/>
 
