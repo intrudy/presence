@@ -26,8 +26,8 @@ const router = createBrowserRouter([
       { path: "guests/:id", element: <ComingSoon/>},
       { path: "register", element: <ComingSoon/> },
       { path: "password/reset", element: <Entry/> },
-      { path: "reports", element: <ComingSoon/> },
-      { path: "reports/analytics", element: <Analytics/> }
+      { path: "admin/reports", element: <ComingSoon/> },
+      { path: "admin/reports/analytics", element: <Analytics/> }
     ]
   },
 ])
