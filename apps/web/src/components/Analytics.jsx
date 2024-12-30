@@ -32,6 +32,7 @@ export default class Analytics extends React.Component {
   availableCohorts() {
     return new Object([
       {
+        'id': 1,
         'name': 'MTD (CS)',
         'year': '2024',
         'strength': 20,
@@ -43,6 +44,7 @@ export default class Analytics extends React.Component {
         }
       },
       {
+        'id': 2,
         'name': 'MIbD',
         'year': '2024',
         'strength': 20,
@@ -54,6 +56,7 @@ export default class Analytics extends React.Component {
         }
       },
       {
+        'id': 3,
         'name': 'MSSD',
         'year': '2024',
         'strength': 20,
@@ -69,6 +72,7 @@ export default class Analytics extends React.Component {
 
   activeCohort() {
     return new Object({
+      'id': 1,
       'name': 'MTD (CS)',
       'year': '2024',
       'strength': 20,
